@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
     wrapper:{
        position:'relative',
             width:'100%',
+            
             height: '500px',
             zIndex: '1',
             marginTop:'140px',
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
         margin:'0 auto',
         display:'flex',
        padding:'60px 0',
+       
         justifyContent:'space-between',
     },
   xcoins:{

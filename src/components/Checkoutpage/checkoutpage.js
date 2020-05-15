@@ -98,14 +98,9 @@ console.log(activeStep+1)
                 {_renderStepContent(activeStep)}
 
                 <div className={classes.buttons}>
-                  {/* {activeStep !== 0 && (
-                    <Button onClick={_handleBack} className={classes.button}>
-                      Back
-                    </Button>
-                  )} */}
+                
                   <div className={classes.wrapper}>
                     <Button
-                    //  onClick={_handleNext}
                       disabled={isSubmitting}
                       type="submit"
                       variant="contained"

@@ -7,6 +7,13 @@ const {
      password,
      recaptcha,
      checkbox,
+     address1,
+     city,
+     zipcode,
+     country,
+     mobile,
+     countrycode,
+     state
   }
 } = checkoutFormModel;
 export default {
@@ -16,5 +23,11 @@ export default {
     [password.name]: '',
     [recaptcha]: '',
     [checkbox.name]: '',
+    [city.name]: '',
+  [zipcode.name]: '',
+  [country.name]: '',
+  [mobile.name]: '',
+  [countrycode.name]: '',
+  [state.name]: '',
 
   };

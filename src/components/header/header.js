@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
             width: '110px',
             height: '46px',
             borderRadius: '23px',
-            border: 'solid 1px #009cde',
+            border: 'solid 1nppx #009cde',
              outline:'none',
              cursor:'pointer',
              background:'transparent',

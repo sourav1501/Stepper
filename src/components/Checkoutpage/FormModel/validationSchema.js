@@ -8,7 +8,14 @@ const {
     email,
     password,
     recaptcha,
-    checkbox
+    checkbox,
+    address1,
+    city,
+    zipcode,
+    country,
+    state,
+    countrycode,
+    mobile,
   }
 } = checkoutFormModel;
 export default [
@@ -20,5 +27,25 @@ export default [
       [recaptcha]: Yup.string().required(`${recaptcha.requiredErrorMsg}`),
       [checkbox]: Yup.string().required()
     }),
+    Yup.object().shape({
+      [country.name]: Yup.string()
+      .nullable()
+      .required(`${country.requiredErrorMsg}`),
+      [zipcode.name]: Yup.string()
+      .required(`${zipcode.requiredErrorMsg}`)
+      .test(
+        'len',
+        `${zipcode.invalidErrorMsg}`,
+        val => val && val.length === 5
+      ),
+      [city.name]: Yup.string()
+      .nullable()
+      .required(`${city.requiredErrorMsg}`),
+      [address1.name]: Yup.string().required(`${address1.requiredErrorMsg}`),
+      [state.name]: Yup.string().required(`${state.requiredErrorMsg}`),
+      [mobile.name]: Yup.string().required(`${mobile.requiredErrorMsg}`),
+
+    }),
+    
   
   ];

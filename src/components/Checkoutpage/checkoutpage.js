@@ -33,13 +33,13 @@ function _renderStepContent(step) {
       return <div>Not Found</div>;
   }
 }
-
+console.log(formField)
 export default function CheckoutPage() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
- 
+//  console.log(currentValidationSchema)
 
   function _sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -60,14 +60,13 @@ export default function CheckoutPage() {
     if (isLastStep) {
       _submitForm(values, actions);
     } else{
-        
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-
+      
+      setActiveStep(activeStep + 1);
       actions.setTouched({});
       actions.setSubmitting(false);
     }
   }
-
+console.log(activeStep+1)
  
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -106,7 +105,7 @@ export default function CheckoutPage() {
                   )} */}
                   <div className={classes.wrapper}>
                     <Button
-                     
+                    //  onClick={_handleNext}
                       disabled={isSubmitting}
                       type="submit"
                       variant="contained"

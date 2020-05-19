@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import '../../App.css'
 import { Formik, Form } from 'formik';
-import useStyles from './Styles';
+// import Styles from './Styles';
 import Signup from '../Forms/Signup';
 import PersonalDetails from '../Forms/PersonalDetails'
 import validationSchema from './FormModel/validationSchema';
@@ -17,9 +17,52 @@ import checkoutFormModel from './FormModel/checkoutFormModel';
 import formInitialValues from './FormModel/formInitialValues';
 import CheckoutSuccess from './CheckoutSuccess/CheckoutSucess'
 import VerifyID from '../Forms/VerifyId'
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root:{
+
+    '& svg':{
+      fontSize:'60px',
+      color:'rgba(0, 156, 222, 0.3)',
+      
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "transparent"
+    },
+    "& .MuiStepConnector-alternativeLabel": {
+      top: '14px',
+      left: 'calc(-29% + 20px)',
+      right: 'calc(70% + 20px)',
+      position: 'absolute',
+      color:'#637696',
+    
+  },
+  "& .MuiStepIcon-root.MuiStepIcon-active": {
+    color: '#009cde'
+}
+    
+  },
+  button:{
+    background:'#86c306',
+   
+    width:'100%',
+    color:'white',
+    borderRadius:'15px',
+    height:'45px',
+    outline:'none'
+  },
+  h:{
+    fontSize:'48px',
+    textAlign:'center',
+    margin:'0',
+    padding:'0'
+  }
+});
 const steps = ['Account setup', 'Personal details', 'Verify ID'];
 
-  
+
 const { formId, formField } = checkoutFormModel;
 function _renderStepContent(step) {
   switch (step) {
@@ -74,13 +117,15 @@ console.log(activeStep+1)
 
   return (
     <React.Fragment>
-      <Typography component="h1" variant="h4" align="center">
+<h1 className={classes.h}>
         Create account
-      </Typography>
-      <Stepper activeStep={activeStep} className={classes.stepper} alternativeLabel>
+        </h1>
+      <Stepper activeStep={activeStep} className={classes.root} alternativeLabel>
         {steps.map(label => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+          <Step key={label}
+         className={classes.completed}>
+            <StepLabel 
+            className={classes.root}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>

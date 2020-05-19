@@ -73,3 +73,17 @@ margin: 13px 0;
   padding-right: 10px;
   
 }
+label{
+  color:#637696;
+  font-size:16px
+
+}
+.button{
+  background:#86c306;
+  
+  /* width:'100%',
+  color:'white',
+  borderRadius:'15px',
+  height:'45px',
+  outline:'none' */
+}

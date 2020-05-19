@@ -4,9 +4,17 @@ export default makeStyles(theme => ({
     padding: theme.spacing(3, 0, 5),
    
     '& svg':{
-      fontSize:'55px',
+      fontSize:'60px',
+      color:'#fbfeff',
       
-    }
+    },
+    '& Line':{
+      top: '13px',
+      left: 'calc(-33% + 20px)',
+      right: 'calc(70% + 20px)',
+      position: 'absolute',
+    },
+  
   },
   buttons: {
    
@@ -19,7 +27,8 @@ export default makeStyles(theme => ({
     width:'100%',
     color:'white',
     borderRadius:'15px',
-    height:'45px'
+    height:'45px',
+    outline:'none'
 
   },
 MuiStepIcon:{
@@ -33,5 +42,27 @@ MuiStepIcon:{
     position: 'absolute',
     top: '50%',
     left: '50%'
-  }
+  },
+  h:{
+    fontSize:'48px',
+    textAlign:'center',
+    margin:'0',
+    padding:'0'
+  },
+  iconRoot: {
+    backgroundColor: "green",
+    color: "white",
+    borderRadius: "50%",
+    padding: 5
+  },
+  completed: {
+    color: "red"
+  },
+  MuiStepConnectoralternativeLabel:{
+    top: '13px',
+    left: 'calc(-33% + 20px)',
+    right: 'calc(70% + 20px)',
+    position: 'absolute',
+}
+
 }));

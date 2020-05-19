@@ -22,13 +22,14 @@ export default {
         label: 'Password*',
         requiredErrorMsg: 'Password is required'
       },
-      checkbox: {
-        name: 'signup',
-        label: `By clicking Continue you agree to our Terms,Cookies Policy and Privacy Policy.You may recieve email and SMS notifications from us and can opt out at any time.`
-      },
+     checkbox:{
+       name:'checkbox',
+       requiredErrorMsg: 'terms is required'
+
+     },
       recaptcha: {
         name: 'recaptcha',
-        requiredErrorMsg: 'captcha'
+        requiredErrorMsg: 'captcha verification required'
 
       },
       address1: {

@@ -1,32 +1,42 @@
 import React from 'react';
 import { at } from 'lodash';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import '../../App.css'
 import { useField } from 'formik';
 import { TextField } from '@material-ui/core';
-const useStyles = makeStyles((theme) => ({
-  root: {
-  border:'1px solid black',
-  borderRadius:'10px',
-  width:'100%',
+import { makeStyles } from "@material-ui/core/styles";
 
-  font: 'inherit',
-    color: 'currentColor',
-    width: '100%',
-   
-    height: '1.1876em',
-    margin: '0',
-    display: 'block',
-    padding: '6px 0 7px',
+const useStyles = makeStyles({
+  root:{
+    margin:'10px 0',
+    border:'none',
+    outline:'none',
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "transparent"
+    },
+    '& input':{
+      padding: "14px 9px",
+      background:'#fbfeff',
+      borderRadius:'10px'
+      
+    },
+    '& input:focus':{
+      boxShadow: '0 0 15px 0 rgba(0, 156, 222, 0.2);',
+      background:'white',
+      border:'none'
+
+    },
     
-    background: 'none',
-    boxSizing: 'content-box',
+    
 
-  },
-}));
+  }
 
-export default function InputField(props) {
+});
+
+ function InputField(props) {
+
   const classes = useStyles();
+
   const { errorText, ...rest } = props;
   const [field, meta] = useField(props);
 
@@ -37,20 +47,23 @@ export default function InputField(props) {
       return error;
     }
   }
+ 
 
   return (
-     
     <TextField
-               id="standard-error-helper-text"
-
+     id="standard-error-helper-text"
+     className={classes.root}
       type="text"
       error={meta.touched && meta.error && true}
+      variant="outlined"
       helperText={_renderHelperText()}
       {...field}
       {...rest}
-     
-
     />
+
+
  
   );
 }
+
+export default InputField;

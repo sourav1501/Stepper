@@ -1,45 +1,28 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Footerbottom from './footerbottom'
+import logo from '../../assets/logo-element-01.png'
+import trust from '../../assets/trustpilot-03.png'
+import slant from '../../assets/pattern-01.svg'
 const useStyles = makeStyles((theme) => ({
     wrapper:{
-       position:'relative',
-            width:'100%',
-            
-            height: '500px',
-            zIndex: '1',
-            marginTop:'140px',
-            backgroundImage: 'linear-gradient(to right, #f5fcff, #ffffff)',
-    },
-    inner:{
       
-        "&:before":{
-            content: "','",
-            position: 'absolute',
-            left: '0',
-            bottom: '0',
-            right:'0px',
-            overflow: 'visible',
-            width: '100%',
             backgroundImage: 'linear-gradient(to right, #f5fcff, #ffffff)',
-            top: '-53px',
-            
-          
-            zIndex: '-1',
-          
-            transform: 'skewY(5deg )',
-            backfaceVisibility: 'initial',
-            width:'100%',
-          
-       
     },
+  pattern:{
+width:'100%',
+margin:'0',
+padding:'0',
+'& img':{
+    width:'100%'
+}
+  },
  
-    },
+    
     container:{
         width:'70%',
-        margin:'0 auto',
+        margin:'-10px auto',
         display:'flex',
-       padding:'60px 0',
        
         justifyContent:'space-between',
     },
@@ -52,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
       }
   },
+  reviews:{
+    marginTop:'18px',
+    width:'256px',
+    '& img':{
+        width:'100%'
+    }
+  },
   footernav:{
       width:'50%',
       display:'flex',
@@ -63,8 +53,10 @@ const useStyles = makeStyles((theme) => ({
   },
   branding:{
     '& a':{
+        display:'flex',
+        alignItems:'center',
     textDecoration:'none',
-    fontSize:'34px',
+    fontSize:'30px',
     color:'black',
     fontWeight:'bold'
     }
@@ -102,16 +94,19 @@ export default function Header(){
     const classes = useStyles();
 return (
     <React.Fragment>
+        <div className={classes.pattern}>
+            <img src={slant} alt="aja"/>
+        </div>
     <div className={classes.wrapper}>
        
-        <div className={classes.inner}>
+        
         <div className={classes.container}>
             <div className={classes.xcoins}>
                 <div className={classes.branding}>
-                    <a href="#">xcoins</a>
+                    <a href="#"><img src={logo} alt="aa"/>&nbsp;xcoins</a>
                 </div>
-                <div>
-
+                <div className={classes.reviews}>
+                   <img src={trust} alt='aha'/>
                 </div>
                 <p>14 East,Level 8,Sliema Road,GZR1639,Malta</p>
             </div>
@@ -161,7 +156,7 @@ return (
         </div>
         <Footerbottom/>
     
-    </div>
+    
     </div>
 </React.Fragment>
 );}

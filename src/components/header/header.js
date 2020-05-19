@@ -1,16 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
+import logo from '../../assets/logo-element-01.png'
 const useStyles = makeStyles((theme) => ({
     wrapper:{
        
             width:'100%',
-            height: '350px',
+            height: '220px',
             
             backgroundImage: 'linear-gradient(to bottom, #f6fcff, #ffffff 96%)',
           
@@ -25,22 +21,28 @@ const useStyles = makeStyles((theme) => ({
 
   },
   innerleft: {
-    width: '45%',
+    width: '50%',
     display:'flex',
     justifyContent:'space-between',
     alignItems:'center',
   },
   branding:{
+    
       '& a':{
+       
+
+        display:'flex',
+        alignItems:'center',
       textDecoration:'none',
-      fontSize:'20px',
+      fontSize:'30px',
+    
       color:'black',
       fontWeight:'bold'
       }
   },
   line:{
         width: '1px',
-        height: '32px',
+        height: '35px',
         opacity: '0.15',
         backgroundColor: '#abb5c7',
       margin:'0',
@@ -70,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
       
     },
     innerright: {
-        width: '55%',
+        width: '50%',
         display:'flex',
         justifyContent:'flex-end'
        
@@ -80,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
             width: '110px',
             height: '46px',
             borderRadius: '23px',
-            border: 'solid 1nppx #009cde',
+            border: 'solid 1px #009cde',
              outline:'none',
              cursor:'pointer',
              background:'transparent',
@@ -112,7 +114,7 @@ return (
     <div className={classes.container}>
      <div className={classes.innerleft}>
             <div className={classes.branding}>
-             <a href="#">XCOINS</a>
+             <a href="#"><img src={logo} alt=''/>&nbsp;xcoins</a>
              </div>
               <div className={classes.line}>
 

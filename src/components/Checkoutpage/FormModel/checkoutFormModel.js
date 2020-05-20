@@ -24,6 +24,7 @@ export default {
       },
      checkbox:{
        name:'checkbox',
+       label:'By clicking Continue you agree to our Terms,Cookies Policy and Privacy Policy . You may recieve email and SMS notifications from us and can opt out at any time.',
        requiredErrorMsg: 'terms is required'
 
      },
@@ -48,7 +49,9 @@ export default {
       },
       state: {
         name: 'state',
-        label: 'State/Province/Region'
+        label: 'State/Province/Region',
+        requiredErrorMsg: 'State is required'
+
       },
       zipcode: {
         name: 'zipcode',
@@ -69,7 +72,7 @@ export default {
       mobile: {
         name: 'mobile',
         label: 'Mobile*',
-        requiredErrorMsg: 'mobile is required'
+        requiredErrorMsg: 'Phone no is required'
       },
 
 

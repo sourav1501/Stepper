@@ -1,8 +1,41 @@
 import React from 'react';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+
+statecity:{
+  display:'flex',
+  justifyContent:'space-between',
+  width:'100%'
+ 
+},
+state:{
+  width:'48%'
+},
+city:{
+  width:'48%'
+},
+code:{
+  display:'flex',
+  justifyContent:'space-between',
+  width:'100%'
+ 
+},
+name:{
+  width:'32%'
+},
+mobile:{
+  width:'65%'
+}
+
+
+ 
+}));
 export default function PersonalDetails(props) {
+  const classes = useStyles();
+
   const countries = [
     {
       value: null,
@@ -22,10 +55,10 @@ export default function PersonalDetails(props) {
     }
   ];
   const countrycodes = [
-    {
-      value: null,
-      label: 'None'
-    },
+    // {
+    //   value: null,
+    //   label: 'None'
+    // },
     {
       value: '111',
       label: 'US'
@@ -50,58 +83,73 @@ export default function PersonalDetails(props) {
       zipcode,
       country,
       mobile,
-      states,
-      cities,
+      
       countrycode,
     }
   } = props;
     return (
         <React.Fragment>
           
-          
+          <div className={country}>
+            <label>Country*</label>
           <SelectField
             name={country.name}
-            label={country.label}
             data={countries}
             fullWidth
           />
-          
-          <InputField name={address1.name} label={address1.label} fullWidth />
-          <InputField name={address2.name} label={address2.label} fullWidth />
-   
-          <Grid item xs={12} sm={6}>
-          <SelectField
-            name={city.name}
-            label={city.label}
-            data={cities}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <SelectField
+          </div>
+          <div className='input'>
+            <label>First line address*</label>
+          <InputField name={address1.name} fullWidth />
+          </div>
+          <div className='input'>
+          <label>Second line address*</label>
+          <InputField name={address2.name}  fullWidth />
+          </div>
+
+
+< div className={classes.statecity}>
+         <div className={classes.state}>
+           <label>State*</label>
+          <InputField
             name={state.name}
-            label={state.label}
-            data={states}
             fullWidth
           />
-        </Grid>
-        <InputField name={zipcode.name} label={zipcode.label} fullWidth />
-        <Grid item xs={12} sm={6}>
+          </div>
+       <div className={classes.city}>
+       <label>City*</label>
+       
+          <InputField
+            name={city.name}
+            fullWidth
+          />
+          </div>
+          </div>
+        <div className="input">
+          <label>Zip code/Post code*</label>
+        <InputField name={zipcode.name}  fullWidth />
+        </div>
+        <div className={classes.code}>
+          <div className={classes.name}>
+            <label>Country code*</label>
           <SelectField
             name={countrycode.name}
             label={countrycode.label}
             data={countrycodes}
             fullWidth
           />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <inputField
+          </div>
+       <div className={classes.mobile}>
+         <label>Phone number*</label>
+          <InputField
             name={mobile.name}
-            label={mobile.label}
+            
             
             fullWidth
           />
-        </Grid>
+          </div>
+          </div>
+        
            
         </React.Fragment>
       );

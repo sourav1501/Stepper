@@ -49,7 +49,11 @@ export default [
       .required(`${city.requiredErrorMsg}`),
       [address1.name]: Yup.string().required(`${address1.requiredErrorMsg}`),
       [state.name]: Yup.string().required(`${state.requiredErrorMsg}`),
-      [mobile.name]: Yup.string().required(`${mobile.requiredErrorMsg}`),
+      [mobile.name]: Yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
+      , 'Inavlid Mobile Number.')
+      .required(`${mobile.requiredErrorMsg}`),
+      [countrycode.name]: Yup.string().required(`${countrycode.requiredErrorMsg}`),
 
     }),
     

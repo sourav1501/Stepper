@@ -9,6 +9,9 @@ body{
 margin: 13px 0;
  
 }
+.inputs{
+  width:'70%'
+}
 .check{
   margin: 20px 0;
 }

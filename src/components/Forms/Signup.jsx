@@ -1,7 +1,8 @@
-import React,{useEffect} from 'react';
+import React,{useState} from 'react';
 import { InputField, CheckboxField } from '../FormFields';
 import Recaptcha from 'react-recaptcha'
 import { makeStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles((theme) => ({
   check:{
     display:'flex',
@@ -41,7 +42,7 @@ text:{
  
 }));
 export default function Signup(props) {
-
+  const[otpp,setotp]=useState(false)
     const {
       formField: {
         firstName,
@@ -53,12 +54,16 @@ export default function Signup(props) {
       }
     } = props;
 
-
+const otp=()=>{
+  setotp(true)
+}
     const classes = useStyles();
 
     return (
       
         <React.Fragment>
+          {!otpp?
+          <div>
          <div className={classes.information}>
             <div className={classes.icon}><i class="fas fa-clock"></i></div>
             <div className={classes.text}>Once submitted,your profile cannot be changed.Please ensure <br></br>that your information is correct.</div>
@@ -97,9 +102,12 @@ export default function Signup(props) {
                 />
                 
                 </div>
-           
+           {/* <button onClick={otp}>Continue</button> */}
 
              </div>
+             </div>
+             :
+             <div>shjsj</div>}
            
         </React.Fragment>
       );

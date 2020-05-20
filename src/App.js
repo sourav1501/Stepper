@@ -3,7 +3,6 @@ import Header from './components/header/header'
 import './App.css';
 import CheckoutPage from './components/Checkoutpage/checkoutpage';
 import MaterialLayout from './components/Layout/Layout';
-
 import Footer from './components/footer/footer'
 function App() {
   return (
@@ -11,6 +10,7 @@ function App() {
       <MaterialLayout>
         <CheckoutPage />
       </MaterialLayout>
+
     </div>
   );
 }

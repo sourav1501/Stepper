@@ -51,7 +51,8 @@ const useStyles = makeStyles({
     color:'white',
     borderRadius:'15px',
     height:'45px',
-    outline:'none'
+    outline:'none',
+    marginTop:'20px'
   },
   h:{
     fontSize:'48px',
@@ -102,7 +103,13 @@ export default function CheckoutPage() {
   function _handleSubmit(values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
-    } else{
+    }
+    // else if(activeStep==0){
+    //   actions.setTouched({});
+    //   actions.setSubmitting(false);
+    //   setotp(true)
+    // }
+     else{
       
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -114,6 +121,7 @@ console.log(activeStep+1)
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
+  const[otpp,setotp]=useState(false)
 
   return (
     <React.Fragment>

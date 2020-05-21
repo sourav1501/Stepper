@@ -2,7 +2,7 @@ import React from 'react';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import PhoneVerification from './phoneVerification'
 const useStyles = makeStyles((theme) => ({
 
 statecity:{
@@ -55,10 +55,7 @@ export default function PersonalDetails(props) {
     }
   ];
   const countrycodes = [
-    // {
-    //   value: null,
-    //   label: 'None'
-    // },
+  
     {
       value: '111',
       label: 'US'
@@ -89,7 +86,8 @@ export default function PersonalDetails(props) {
   } = props;
     return (
         <React.Fragment>
-          
+           {props.phoneverify?(
+            <div>
           <div className={country}>
             <label>Country*</label>
           <SelectField
@@ -108,7 +106,7 @@ export default function PersonalDetails(props) {
           </div>
 
 
-< div className={classes.statecity}>
+            < div className={classes.statecity}>
          <div className={classes.state}>
            <label>State*</label>
           <InputField
@@ -149,8 +147,16 @@ export default function PersonalDetails(props) {
           />
           </div>
           </div>
-        
+         </div>
+           ):(
+       
+           <div>
+               
+               sjsjsj
+               </div>
            
+           )  
+} 
         </React.Fragment>
       );
     }

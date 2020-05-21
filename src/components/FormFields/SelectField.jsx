@@ -78,9 +78,10 @@ const useStyles = makeStyles({
       borderColor: "transparent"
     },
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      // border: "1px solid #white",
+      border: "1px solid #white",
+      borderColor: "transparent",
       borderRadius: "10px",
-      boxShadow: '0 0 15px 0 rgba(0, 156, 222, 0.2);',
+      // boxShadow: '0 0 15px 0 rgba(0, 156, 222, 0.2);',
 
     },
     

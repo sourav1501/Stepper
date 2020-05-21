@@ -11,13 +11,13 @@ import '../../App.css'
 import { Formik, Form } from 'formik';
 // import Styles from './Styles';
 import Signup from '../Forms/Signup';
+import PhoneVerification from '../Forms/phoneVerification'
 import PersonalDetails from '../Forms/PersonalDetails'
 import validationSchema from './FormModel/validationSchema';
 import checkoutFormModel from './FormModel/checkoutFormModel';
 import formInitialValues from './FormModel/formInitialValues';
 import CheckoutSuccess from './CheckoutSuccess/CheckoutSucess'
 import VerifyID from '../Forms/VerifyId'
-
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -64,26 +64,30 @@ const useStyles = makeStyles({
 const steps = ['Account setup', 'Personal details', 'Verify ID'];
 
 
-const { formId, formField } = checkoutFormModel;
+
+export default function CheckoutPage() {
+  const { formId, formField } = checkoutFormModel;
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <Signup formField={formField} />;
+      return <Signup formField={formField} toggle={toggle}   />;
     case 1:
-      return <PersonalDetails formField={formField} />;
+      return <PersonalDetails formField={formField} phoneverify={phoneverify} />
+      ;
     case 2:
       return <VerifyID/>;
     default:
       return <div>Not Found</div>;
   }
 }
-console.log(formField)
-export default function CheckoutPage() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
+
 //  console.log(currentValidationSchema)
+const[toggle,settoggle]=useState(false)
+const[phoneverify,setphoneverify]=useState(false)
 
   function _sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -93,6 +97,7 @@ export default function CheckoutPage() {
     await _sleep(1000);
     alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
+    localStorage.setItem('values', [JSON.stringify(values)]);
 
     setActiveStep(activeStep + 1);
   }
@@ -100,20 +105,30 @@ export default function CheckoutPage() {
       console.log("shhsh")
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
+   
   function _handleSubmit(values, actions) {
+    // debugger
     if (isLastStep) {
       _submitForm(values, actions);
     }
-    // else if(activeStep==0){
-    //   actions.setTouched({});
-    //   actions.setSubmitting(false);
-    //   setotp(true)
-    // }
+    
+    // debugger 
+    if(!phoneverify){
+       
+    setphoneverify(true)
+    return
+    }
+
+         if(!toggle){
+           settoggle(true) 
+           return    
+             }
+             
      else{
       
       setActiveStep(activeStep + 1);
       actions.setTouched({});
-      actions.setSubmitting(false);
+      // actions.setSubmitting(false);
     }
   }
 console.log(activeStep+1)
@@ -121,7 +136,6 @@ console.log(activeStep+1)
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
-  const[otpp,setotp]=useState(false)
 
   return (
     <React.Fragment>
@@ -154,19 +168,21 @@ console.log(activeStep+1)
                 
                   <div className={classes.wrapper}>
                     <Button
-                      disabled={isSubmitting}
+                      // disabled={isSubmitting}
                       type="submit"
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                    >Continue
+                    >
+                      CONTINUE
+                      {/* {(!toggle)?'CONTINUE':'RESEND CODE'} */}
                     </Button>
-                    {isSubmitting && (
+                    {/* {isSubmitting && (
                       <CircularProgress
                         size={24}
                         className={classes.buttonProgress}
                       />
-                    )}
+                    )} */}
                   </div>
                 </div>
               </Form>

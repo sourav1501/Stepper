@@ -12,6 +12,11 @@ export default {
         label: 'Last name*',
         requiredErrorMsg: 'Last name is required'
       },
+      otp: {
+        name: 'otp',
+        label: 'Last name*',
+        requiredErrorMsg: 'otp is required'
+      },
       email: {
         name: 'email',
         label: 'Email*',

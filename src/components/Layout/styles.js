@@ -17,7 +17,7 @@ import {
   
   const useStyle = makeStyles(() => ({
     paper: {
-    width:'30%',
+    width:'32%',
     margin:'0px auto',
     background:'#fff'
     },

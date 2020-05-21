@@ -16,12 +16,16 @@ const {
     state,
     countrycode,
     mobile,
+    address2,
+    otp
   }
 } = checkoutFormModel;
 export default [
     Yup.object().shape({
       [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
       [lastName.name]: Yup.string().required(`${lastName.requiredErrorMsg}`),
+      // [otp.name]: Yup.string().required(`${otp.requiredErrorMsg}`),
+
       [email.name]: Yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Invalid Email address).')
       .required(`${email.requiredErrorMsg}`),
       [password.name]: Yup.string() .matches(/[a-zA-Z]+[^a-zA-Z\s]+/, 'at least 1 number or special char (@,!,#, etc).')
@@ -48,6 +52,8 @@ export default [
       .nullable()
       .required(`${city.requiredErrorMsg}`),
       [address1.name]: Yup.string().required(`${address1.requiredErrorMsg}`),
+      [address2.name]: Yup.string().required(`${address2.requiredErrorMsg}`),
+
       [state.name]: Yup.string().required(`${state.requiredErrorMsg}`),
       [mobile.name]: Yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 

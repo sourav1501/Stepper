@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { InputField, CheckboxField } from '../FormFields';
 import Recaptcha from 'react-recaptcha'
 import { makeStyles } from '@material-ui/core/styles';
-
+import OTPPAGE from './Otp'
 const useStyles = makeStyles((theme) => ({
   check:{
     display:'flex',
@@ -21,11 +21,22 @@ information:{
  display:'flex',
  alignItems:'center',
  height: '72px',
+ width:'100%',
  background:'#fdf9e8',
 margin:'20px 0', 
  borderRadius:'7px'
   
 },
+information1:{
+  display:'flex',
+  alignItems:'center',
+  height: '72px',
+  width:'100%',
+  background:'#fdf9e8',
+ margin:'30px 0', 
+  borderRadius:'7px'
+   
+ },
 icon:{
   padding: '0 15px ',
 color:'#e6b413',
@@ -42,7 +53,6 @@ text:{
  
 }));
 export default function Signup(props) {
-  const[otpp,setotp]=useState(false)
     const {
       formField: {
         firstName,
@@ -54,15 +64,13 @@ export default function Signup(props) {
       }
     } = props;
 
-const otp=()=>{
-  setotp(true)
-}
+
     const classes = useStyles();
 
     return (
       
         <React.Fragment>
-          {!otpp?
+          {!props.toggle?
           <div>
          <div className={classes.information}>
             <div className={classes.icon}><i class="fas fa-clock"></i></div>
@@ -102,12 +110,18 @@ const otp=()=>{
                 />
                 
                 </div>
-           {/* <button onClick={otp}>Continue</button> */}
 
              </div>
              </div>
              :
-             <div>shjsj</div>}
+             <div>
+               <div className={classes.information1}>
+            <div className={classes.icon}><i class="fas fa-clock"></i></div>
+            <div className={classes.text}>We've sent your email address a code.Please input the 4 digit code here, <br></br>to verify your email address.</div>
+         </div >
+               <OTPPAGE/>
+             </div>
+             }
            
         </React.Fragment>
       );

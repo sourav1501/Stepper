@@ -17,7 +17,14 @@ const {
     countrycode,
     mobile,
     address2,
-    otp
+    otp,
+    file,
+    date,
+    licence,
+    file2,
+    file3,
+    choose,
+    terms
   }
 } = checkoutFormModel;
 export default [
@@ -59,9 +66,19 @@ export default [
 
       , 'Inavlid Mobile Number.')
       .required(`${mobile.requiredErrorMsg}`),
-      [countrycode.name]: Yup.string().required(`${countrycode.requiredErrorMsg}`),
+      [countrycode.name]: Yup.string().nullable().required(`${countrycode.requiredErrorMsg}`),
 
     }),
-    
+    Yup.object().shape({
+      [file.name]: Yup.string().nullable().required(`${file.requiredErrorMsg}`),
+      [file2.name]: Yup.string().required(`${file2.requiredErrorMsg}`),
+      [file3.name]: Yup.string().required(`${file3.requiredErrorMsg}`),
+      [choose.name]: Yup.string().required(`${choose.requiredErrorMsg}`),
+      [licence.name]: Yup.string().required(`${licence.requiredErrorMsg}`),
+      [terms.name]: Yup.bool().oneOf([true],(`${checkbox.requiredErrorMsg}`) ),
+
+      [date.name]: Yup.string().required(`${date.requiredErrorMsg}`),
+
+    })
   
   ];

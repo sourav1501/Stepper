@@ -70,15 +70,45 @@ export default {
         requiredErrorMsg: 'Country is required'
       },
       countrycode: {
-        name: 'country',
+        name: 'countrycode',
         label: 'Country*',
-        requiredErrorMsg: 'Country is required'
+        requiredErrorMsg: 'Countrycode is required'
       },
       mobile: {
         name: 'mobile',
         label: 'Mobile*',
         requiredErrorMsg: 'Phone no is required'
       },
+      file: {
+        name: 'file',
+        requiredErrorMsg: 'File is required'
+      },
+      file2: {
+        name: 'file2',
+        requiredErrorMsg: 'File is required'
+      },
+      file3: {
+        name: 'file3',
+        requiredErrorMsg: 'File is required'
+      },
+      date: {
+        name: 'date',
+        requiredErrorMsg: 'Date is required'
+      },
+      choose: {
+        name: 'choose',
+        requiredErrorMsg: 'Choose method is required'
+      },
+      licence: {
+        name: 'licence',
+        requiredErrorMsg: 'Licence number is required'
+      },
+      terms: {
+        name: 'terms',
+        label:'Please acceptTerms of service and Privacy Policy .',
+        requiredErrorMsg: 'Please accept is required'
+      },
+
 
 
     }

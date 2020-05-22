@@ -15,7 +15,14 @@ const {
      mobile,
      countrycode,
      state,
-     otp
+     otp,
+     file,
+     date,
+     file2,
+     file3,
+     choose,
+     terms,
+     licence
   }
 } = checkoutFormModel;
 export default {
@@ -34,5 +41,12 @@ export default {
     [mobile.name]: '',
     [countrycode.name]: '',
     [state.name]: '',
+    [file.name]: null,
+    [file2.name]: null,
+    [file3.name]: null,
+    [choose.name]: '',
+    [terms.name]: false,
+[licence.name]:'',
+    [date.name]: '',
 
   };

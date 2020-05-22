@@ -1,6 +1,5 @@
 import React from 'react';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
-import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PhoneVerification from './phoneVerification'
 const useStyles = makeStyles((theme) => ({
@@ -86,7 +85,7 @@ export default function PersonalDetails(props) {
   } = props;
     return (
         <React.Fragment>
-           {props.phoneverify?(
+           {!props.phoneverify?(
             <div>
           <div className={country}>
             <label>Country*</label>
@@ -132,7 +131,6 @@ export default function PersonalDetails(props) {
             <label>Country code*</label>
           <SelectField
             name={countrycode.name}
-            label={countrycode.label}
             data={countrycodes}
             fullWidth
           />
